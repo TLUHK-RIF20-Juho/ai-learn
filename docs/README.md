@@ -60,9 +60,23 @@ flowchart TB
 - Kasuta praktilisi näiteid
 - Lisa interaktiivseid elemente
 
-**HINDAMINE:**
+**Hindamine:**
 - ASK harjutused: Enesekontroll või vastastikune hindamine
 - DO ülesanded: Õpetaja hindab
 - Lõpuprojekt: Põhjalik tagasiside
+**Ajaline planeering:**
+- Nädal 1: Tegum 1 - Promptide koostamine
+    - TELL & SHOW: 45 min
+    - ASK & DO: 45 min
+
+- Nädal 2: Tegum 2 - Vastuste analüüs
+    - TELL & SHOW: 45 min
+    - ASK & DO: 45 min
+
+- Nädal 3: Tegum 3 - Prompti iteratiivne täiustamine
+    - TELL & SHOW: 45 min
+    - ASK & DO: 45 min
+
+- Nädal 4: Lõpuprojekt
 
 

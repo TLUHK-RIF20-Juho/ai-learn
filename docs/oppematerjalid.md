@@ -1,3 +1,5 @@
+Õpetaja peab ette valmistama:
+
 1. TEOREETILISED MATERJALID (TELL):
 - Promptimise põhimõtete tekstid/artiklid
 - Videoloengud või salvestatud selgitused
