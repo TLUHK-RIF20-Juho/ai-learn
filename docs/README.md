@@ -54,11 +54,11 @@ flowchart TB
 - Tegum3: [Viiba iteratiivne täiustamine](./tegum3.md)
 
 ## Juhend õpetajale
-- Järgige TELL→SHOW→ASK→DO mustrit
-- Alustage lihtsamatest ülesannetest
-- Igal sammul kontrollige õpiväljundite saavutamist
-- Kasutage praktilisi näiteid
-- Lisage interaktiivseid elemente
+- Järgi TELL→SHOW→ASK→DO mustrit
+- Alusta lihtsamatest ülesannetest
+- Igal sammul kontrolli õpiväljundite saavutamist
+- Kasuta praktilisi näiteid
+- Lisa interaktiivseid elemente
 
 **HINDAMINE:**
 - ASK harjutused: Enesekontroll või vastastikune hindamine
