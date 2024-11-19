@@ -1,10 +1,11 @@
 # LLM viipade õppetüki kava
 
 ## Õpiväljundid
-- Koostab efektiivseid viipe
-- Analüüsib LLM vastuseid
-- Täiustab viipe iteratiivselt
-- Rakendab viipade koostamise parimaid praktikaid
+**Õpitüki läbinu:**
+- koostab efektiivseid viipe;
+- analüüsib LLM vastuseid;
+- täiustab viipe iteratiivselt;
+- rakendab viipade koostamise parimaid praktikaid
 
 ## Struktuur
 ```mermaid
@@ -72,9 +73,9 @@ flowchart TB
 - Lisa interaktiivseid elemente
 
 **Hindamine:**
-- ASK harjutused: Enesekontroll või vastastikune hindamine
-- DO ülesanded: Õpetaja hindab
-- Lõpuprojekt: Põhjalik tagasiside
+- ASK harjutused: enesekontroll või vastastikune hindamine
+- DO ülesanded: õpetaja hindab
+- Lõpuprojekt: põhjalik tagasiside
 
 **Ajaline planeering:**
 - Nädal 1: Tegum 1 - Promptide koostamine
@@ -89,6 +90,6 @@ flowchart TB
     - TELL & SHOW: 45 min
     - ASK & DO: 45 min
 
-- Nädal 4: Lõpuprojekt
+- Nädal 4: lõpuprojekt
 
 
