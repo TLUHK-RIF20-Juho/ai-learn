@@ -18,27 +18,27 @@
 - Vastuste kvaliteet
 - Lõpptulemuse terviklikkus
 
-## Projekt 2: Viipade iteratiivne täiustamine
-**Raskusaste:** Keskmine-raske
-**Kestus:** 2 nädalat
+## Projekt 2: Viipade iteratiivne täiustamine  
+**Raskusaste:** Keskmine-raske  
+**Kestus:** 2 nädalat  
 
 ### Projekti kirjeldus:
-1. Vali üks projekti osa (nt eelarve või tegevuskava)
-2. Loo esialgne viip
-3. Täiusta viipa vähemalt 3 korda, baseerudes:
-   - Vastuse analüüsil
-   - Puuduvatel elementidel
-   - Täiendaval kontekstil
-4. Dokumenteeri täiustamise protsess
+1. Vali üks projekti osa (nt eelarve või tegevuskava)  
+2. Loo esialgne viip  
+3. Täiusta viipa vähemalt 3 korda, baseerudes:  
+   - Vastuse analüüsil  
+   - Puuduvatel elementidel  
+   - Täiendaval kontekstil  
+4. Dokumenteeri täiustamise protsess  
 
 ### Hindamiskriteeriumid:
-- Iteratsioonide põhjendatus
-- Viipade areng
-- Tulemuste paranemine
+- Iteratsioonide põhjendatus  
+- Viipade areng  
+- Tulemuste paranemine  
 
 ## Projekt 3: Kompleksne projektikoostamine
-**Raskusaste:** Raske
-**Kestus:** 3 nädalat
+**Raskusaste:** Raske  
+**Kestus:** 3 nädalat  
 
 ### Projekti kirjeldus:
 1. Koosta terviklik EL projektitaotlus, kasutades viipasid:
