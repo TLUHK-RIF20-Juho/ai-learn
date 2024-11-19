@@ -52,3 +52,14 @@ flowchart TB
 - Tegum1: [Viipade koostamine](./tegum1.md)
 - Tegum2: [Vastuste analüüs](./tegum2.md)
 - Tegum3: [Viiba iteratiivne täiustamine](./tegum3.md)
+
+## Juhend õpetajale
+- Järgige TELL→SHOW→ASK→DO mustrit
+- Alustage lihtsamatest ülesannetest
+- Igal sammul kontrollige õpiväljundite saavutamist
+- Kasutage praktilisi näiteid
+- Lisage interaktiivseid elemente
+### HINDAMINE:
+- ASK harjutused: Enesekontroll või vastastikune hindamine
+- DO ülesanded: Õpetaja hindab
+- Lõpuprojekt: Põhjalik tagasiside
