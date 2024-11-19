@@ -2,8 +2,8 @@
 # Projektülesanded
 
 ## Projekt 1: EL Projekti kavandi koostamine viipade abil
-**Raskusaste:** Keskmine
-**Kestus:** 1 nädal
+**Raskusaste:** keskmine  
+**Kestus:** 1 nädal  
 
 ### Projekti kirjeldus:
 1. Vali konkreetne EL toetusmeetme valdkond
