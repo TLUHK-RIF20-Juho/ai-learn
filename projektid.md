@@ -20,7 +20,7 @@
 - Lõpptulemuse terviklikkus
 
 ## Projekt 2: Viipade iteratiivne täiustamine  
-**Raskusaste:** Keskmine-raske  
+**Raskusaste:** keskmine-raske  
 **Kestus:** 2 nädalat  
 
 ### Projekti kirjeldus:
@@ -38,7 +38,7 @@
 - Tulemuste paranemine  
 
 ## Projekt 3: Kompleksne projektikoostamine
-**Raskusaste:** Raske  
+**Raskusaste:** raske  
 **Kestus:** 3 nädalat  
 
 ### Projekti kirjeldus:
@@ -56,7 +56,7 @@
 - Lõpptulemuse kvaliteet
 
 ## Lõpuprojekt: Reaalse projektitaotluse koostamine
-**Raskusaste:** Väga raske
+**Raskusaste:** väga raske
 **Kestus:** 4 nädalat
 
 ### Projekti kirjeldus:
