@@ -53,6 +53,16 @@ flowchart TB
 - Tegum2: [Vastuste analüüs](./tegum2.md)
 - Tegum3: [Viiba iteratiivne täiustamine](./tegum3.md)
 
+## Harjutused
+- [Harjutus 1: Baasviiba koostamine](./harjutused.md#harjutus-1-baasviiba-koostamine)
+- [Harjutus 2: Viiba konteksti täiendamine](./harjutused.md#harjutus-2-viiba-konteksti-täiendamine)
+- [Projektid](./projektid.md)
+
+## Projektid
+- [Projekt 1: Vastuste kvaliteedi analüüs](./projektid.md#projekt-1-vastuste-kvaliteedi-analüüs)
+- [Projekt 2: Viiba iteratiivne parendamine](./projektid.md#projekt-2-viiba-iteratiivne-parendamine)
+- [Projekt 3: Kompleksne projektikoostamine](./projektid.md#projekt-3-kompleksne-projektikoostamine)
+
 ## Juhend õpetajale
 - Järgi TELL→SHOW→ASK→DO mustrit
 - Alusta lihtsamatest ülesannetest
@@ -64,6 +74,7 @@ flowchart TB
 - ASK harjutused: Enesekontroll või vastastikune hindamine
 - DO ülesanded: Õpetaja hindab
 - Lõpuprojekt: Põhjalik tagasiside
+
 **Ajaline planeering:**
 - Nädal 1: Tegum 1 - Promptide koostamine
     - TELL & SHOW: 45 min
