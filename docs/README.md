@@ -48,3 +48,7 @@ flowchart TB
     h1 --> h2 --> h3 --> h4 --> h5 --> h6
     end
 ```
+## Tegumid
+- Tegum1: [Viipade koostamine](./tegum1.md)
+- Tegum2: [Vastuste analüüs](./tegum2.md)
+- Tegum3: [Viiba iteratiivne täiustamine](./tegum3.md)
