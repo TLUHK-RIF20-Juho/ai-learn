@@ -5,7 +5,7 @@
     - Rakendab promptimise parimaid praktikaid
 ```mermaid
 flowchart TB
-    subgraph Tegum1[Promptide koostamine]
+    subgraph Tegum1[Viipade koostamine]
     t1[TELL: Prompti struktuur ja komponendid]
     t2[SHOW: Näited erinevatest promptidest]
     t3[ASK: Prompti komponentide tuvastamine]
@@ -21,11 +21,13 @@ flowchart TB
     a1 --> a2 --> a3 --> a4
     end
 
-    subgraph Tegum3[Prompti iteratiivne täiustamine]
+    subgraph Tegum3[Viiba iteratiivne täiustamine]
     i1[TELL: Iteratiivse täiustamise protsess]
     i2[SHOW: Prompti parendamise näited]
     i3[ASK: Parendamisvõimaluste leidmine]
     i4[DO: Prompti optimeerimise projekt]
     i1 --> i2 --> i3 --> i4
     end
+
+    Tegum1 --> Tegum2 --> Tegum3
 ```
