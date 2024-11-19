@@ -56,12 +56,12 @@ flowchart TB
 ## Harjutused
 - [Harjutus 1: Baasviiba koostamine](./harjutused.md#harjutus-1-baasviiba-koostamine)
 - [Harjutus 2: Viiba konteksti täiendamine](./harjutused.md#harjutus-2-viiba-konteksti-täiendamine)
-- [Projektid](./projektid.md)
+- [Harjutus 3: Viipade vastuste analüüs](./harjutused.md#harjutus-3-viipade-vastuste-analüüs)
 
 ## Projektid
-- [Projekt 1: Vastuste kvaliteedi analüüs](./projektid.md#projekt-1-vastuste-kvaliteedi-analüüs)
-- [Projekt 2: Viiba iteratiivne parendamine](./projektid.md#projekt-2-viiba-iteratiivne-parendamine)
-- [Projekt 3: Kompleksne projektikoostamine](./projektid.md#projekt-3-kompleksne-projektikoostamine)
+- [Projekt 1: EL Projekti kavandi koostamine viipade abil](./projektid.md#projekt-1-el-projekti-kavandi-koostamine-viipade-abil)
+- [Projekt 2: Viipade iteratiivne täiustamine](./projektid.md#projekt-2-viipade-iteratiivne-täiustamine)
+- [Projekt 3: Kompleksne viiba koostamine](./projektid.md#projekt-3-kompleksne-viiba-koostamine)
 
 ## Juhend õpetajale
 - Järgi TELL→SHOW→ASK→DO mustrit

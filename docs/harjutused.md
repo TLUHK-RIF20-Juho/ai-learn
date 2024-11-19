@@ -37,7 +37,7 @@
 - Viiba struktureeritus
 - Vastuse detailsus
 
-## Harjutus 3: Viipadele vastuste analüüs
+## Harjutus 3: Viipade vastuste analüüs
 **Raskusaste:** Keskmine
 **Eesmärk:** Õppida hindama vastuste kvaliteeti
 
