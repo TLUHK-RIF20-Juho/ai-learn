@@ -1,3 +1,4 @@
+[<-Tagasi](./README.md)
 # Tegum 1: Viipade koostamine
 
 ## TELL: Viiba struktuur ja komponendid
@@ -11,3 +12,5 @@
 
 ## DO: Lihtsa viiba koostamine
 [Ülesanne]
+
+[<-Tagasi](./README.md)

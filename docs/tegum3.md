@@ -1,3 +1,4 @@
+[<-Tagasi](./README.md)
 # Tegum 2: Viiba iteratiivne täiustamine
 
 ## TELL: Vastuste hindamise kriteeriumid
@@ -11,3 +12,5 @@
 
 ## DO: Lihtsa viiba koostamine
 [Ülesanne]
+
+[<-Tagasi](./README.md)
