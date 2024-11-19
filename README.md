@@ -7,7 +7,7 @@
 - täiustab viipe iteratiivselt;
 - rakendab viipade koostamise parimaid praktikaid
 
-## Tegumite struktuur
+## Tegumite struktuur – viipade koostamine, vastuste analüüs ja viiba iteratiivne täiustamine
 ```mermaid
 flowchart TB
     subgraph Tegum1[Viipade koostamine]
