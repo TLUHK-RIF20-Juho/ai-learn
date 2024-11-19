@@ -50,37 +50,37 @@ flowchart TB
 
 ### Selgitused (ASK):
 
-"Baasviip" - koostab lihtsa viiba etteantud ülesande põhjal
+**"Baasviip"** - koostab lihtsa viiba etteantud ülesande põhjal
 
-Raskusaste: kerge  
-Seotud tegumiga: Viipade koostamine
+Raskusaste: **kerge**  
+Seotud tegumiga: **Viipade koostamine**
 
 
-"Konteksti lisamine" - täiendab olemasolevat viipa asjakohase kontekstiga
+**"Konteksti lisamine"** - täiendab olemasolevat viipa asjakohase kontekstiga
 
-Raskusaste: keskmine  
-Seotud tegumiga: Viipade koostamine
+Raskusaste: **keskmine**  
+Seotud tegumiga: **Viipade koostamine**
 
 ### Ülesanded (DO):
 
-"Vastuste analüüs" - analüüsib viie erineva prompti vastuseid, koostab võrdlustabeli
+**"Vastuste analüüs"** - analüüsib viie erineva viiba vastuseid, koostab võrdlustabeli
 
-Raskusaste: keskmine  
+Raskusaste: **keskmine**  
 Seotud tegumiga: Vastuste analüüs
 
-"Iteratiivne parendamine" - võtab ühe viiba ja täiustab seda vähemalt kolm korda
+**"Iteratiivne parendamine"** - võtab ühe viiba ja täiustab seda vähemalt kolm korda
 
-Raskusaste: keskmine-raske  
+Raskusaste: **keskmine-raske**  
 Seotud tegumiga: Viipade iteratiivne täiustamine
 
 
-"Kompleksne promptimine" - lahendab keerukama ülesande, mis nõuab mitme prompti kombineerimist
+"Kompleksne viipade koostamine" - lahendab keerukama ülesande, mis nõuab mitme viiba kombineerimist
 
-Raskusaste: raske  
-Seotud tegumiga: kõik tegumid
+Raskusaste: **raske**  
+Seotud tegumiga: **kõik tegumid**
 
 
-"Lõpuprojekt" - valib reaalse probleemi ja lahendab selle LLM abil
+**  "Lõpuprojekt"** - valib reaalse probleemi ja lahendab selle LLM abil
 
-Raskusaste: väga raske  
+Raskusaste: **väga raske**  
 Seotud tegumiga: kõik tegumid
