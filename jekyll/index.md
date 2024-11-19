@@ -1,11 +1,12 @@
-# Keelemudelitele viipade koostamine
+# LLM viipade õppetüki kava
+
 ## Õpiväljundid
-Kursuse läbinu:
-- Koostab efektiivseid viipasid
-- Analüüsib keelemudelite vastuseid
-- Täiustab viipa iteratiivselt
+- Koostab efektiivseid viipe
+- Analüüsib LLM vastuseid
+- Täiustab viipe iteratiivselt
 - Rakendab viipade koostamise parimaid praktikaid
 
+## Struktuur
 ```mermaid
 flowchart TB
     subgraph Tegum1[Viipade koostamine]
@@ -47,40 +48,3 @@ flowchart TB
     h1 --> h2 --> h3 --> h4 --> h5 --> h6
     end
 ```
-
-### Selgitused (ASK):
-
-**"Baasviip"** - koostab lihtsa viiba etteantud ülesande põhjal
-
-Raskusaste: **kerge**  
-Seotud tegumiga: **Viipade koostamine**
-
-
-**"Konteksti lisamine"** - täiendab olemasolevat viipa asjakohase kontekstiga
-
-Raskusaste: **keskmine**  
-Seotud tegumiga: **Viipade koostamine**
-
-### Ülesanded (DO):
-
-**"Vastuste analüüs"** - analüüsib viie erineva viiba vastuseid, koostab võrdlustabeli
-
-Raskusaste: **keskmine**  
-Seotud tegumiga: Vastuste analüüs
-
-**"Iteratiivne parendamine"** - võtab ühe viiba ja täiustab seda vähemalt kolm korda
-
-Raskusaste: **keskmine-raske**  
-Seotud tegumiga: Viipade iteratiivne täiustamine
-
-
-"Kompleksne viipade koostamine" - lahendab keerukama ülesande, mis nõuab mitme viiba kombineerimist
-
-Raskusaste: **raske**  
-Seotud tegumiga: **kõik tegumid**
-
-
-**  "Lõpuprojekt"** - valib reaalse probleemi ja lahendab selle LLM abil
-
-Raskusaste: **väga raske**  
-Seotud tegumiga: kõik tegumid
