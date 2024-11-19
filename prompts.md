@@ -1,8 +1,10 @@
+
+```mermaid
 flowchart TB
     subgraph Õpiväljundid
     v1[Oskab koostada efektiivseid prompte]
     v2[Analüüsib LLM vastuseid]
-    v3[Täiustab prompte iteratiivselt]
+    v3[Täiustab prompte iteratiivselt] 
     v4[Rakendab promptimise parimaid praktikaid]
     end
 
@@ -41,3 +43,4 @@ flowchart TB
     h6[DO: Lõpuprojekt - Reaalse probleemi lahendamine]
     h1 --> h2 --> h3 --> h4 --> h5 --> h6
     end
+```
