@@ -56,8 +56,8 @@
 - Lõpptulemuse kvaliteet
 
 ## Lõpuprojekt: Reaalse projektitaotluse koostamine
-**Raskusaste:** väga raske
-**Kestus:** 4 nädalat
+**Raskusaste:** väga raske  
+**Kestus:** 4 nädalat  
 
 ### Projekti kirjeldus:
 1. Vali reaalne EL toetusmeetme taotlusvoor
