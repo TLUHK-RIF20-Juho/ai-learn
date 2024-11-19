@@ -59,7 +59,10 @@ flowchart TB
 - Igal sammul kontrollige õpiväljundite saavutamist
 - Kasutage praktilisi näiteid
 - Lisage interaktiivseid elemente
-### HINDAMINE:
+
+**HINDAMINE:**
 - ASK harjutused: Enesekontroll või vastastikune hindamine
 - DO ülesanded: Õpetaja hindab
 - Lõpuprojekt: Põhjalik tagasiside
+
+
