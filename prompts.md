@@ -1,15 +1,18 @@
+# Keelemudelitele viipade koostamine
 ## Õpiväljundid
-    - Koostab efektiivseid viipasid
-    - Analüüsib LLM vastuseid
-    - Täiustab prompte iteratiivselt
-    - Rakendab promptimise parimaid praktikaid
+Kursuse läbinu:
+- Koostab efektiivseid viipasid
+- Analüüsib keelemudelite vastuseid
+- Täiustab viipa iteratiivselt
+- Rakendab viipade koostamise parimaid praktikaid
+
 ```mermaid
 flowchart TB
     subgraph Tegum1[Viipade koostamine]
-    t1[TELL: Prompti struktuur ja komponendid]
-    t2[SHOW: Näited erinevatest promptidest]
-    t3[ASK: Prompti komponentide tuvastamine]
-    t4[DO: Lihtsa prompti koostamine]
+    t1[TELL: Viiba struktuur ja komponendid]
+    t2[SHOW: Näited erinevatest viipadest]
+    t3[ASK: Viiba komponentide tuvastamine]
+    t4[DO: Lihtsa viiba koostamine]
     t1 --> t2 --> t3 --> t4
     end
 
@@ -23,11 +26,24 @@ flowchart TB
 
     subgraph Tegum3[Viiba iteratiivne täiustamine]
     i1[TELL: Iteratiivse täiustamise protsess]
-    i2[SHOW: Prompti parendamise näited]
+    i2[SHOW: Viiba parendamise näited]
     i3[ASK: Parendamisvõimaluste leidmine]
-    i4[DO: Prompti optimeerimise projekt]
+    i4[DO: Viiba optimeerimise projekt]
     i1 --> i2 --> i3 --> i4
     end
 
     Tegum1 --> Tegum2 --> Tegum3
+```
+## Harjutused
+```mermaid
+flowchart TB
+    subgraph Harjutused/Ülesanded
+    h1[ASK: Viip1 - Baasviip lihtsa ülesande jaoks]
+    h2[ASK: Viip2 - Konteksti lisamine viibale]
+    h3[DO: Projekt1 - Vastuste kvaliteedi analüüs]
+    h4[DO: Projekt2 - Viiba iteratiivne parendamine]
+    h5[DO: Projekt3 - Kompleksne viiba koostamine]
+    h6[DO: Lõpuprojekt - Reaalse probleemi lahendamine]
+    h1 --> h2 --> h3 --> h4 --> h5 --> h6
+    end
 ```
