@@ -61,7 +61,8 @@ flowchart TB
 ## Projektid
 - [Projekt 1: EL Projekti kavandi koostamine viipade abil](./projektid.md#projekt-1-el-projekti-kavandi-koostamine-viipade-abil)
 - [Projekt 2: Viipade iteratiivne täiustamine](./projektid.md#projekt-2-viipade-iteratiivne-täiustamine)
-- [Projekt 3: Kompleksne viiba koostamine](./projektid.md#projekt-3-kompleksne-viiba-koostamine)
+- [Projekt 3: Kompleksne viiba koostamine](./projektid.md#projekt-3-kompleksne-projektikoostamine)
+- [Lõpuprojekt: Reaalse probleemi lahendamine viipade abil](./projektid.md#lõpuprojekt-reaalse-probleemi-lahendamine-viipade-abil)
 
 ## Juhend õpetajale
 - Järgi TELL→SHOW→ASK→DO mustrit
