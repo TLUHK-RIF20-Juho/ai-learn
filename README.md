@@ -1,7 +1,7 @@
 # LLM viipade õppetüki kava
 
 ## Õpiväljundid
-**Õpitüki läbinu:**
+**Õppetüki läbinu:**
 - koostab efektiivseid viipe;
 - analüüsib LLM vastuseid;
 - täiustab viipe iteratiivselt;
@@ -22,7 +22,7 @@ flowchart TB
     a1[TELL: Vastuste hindamise kriteeriumid]
     a2[SHOW: Heade ja halbade vastuste näited]
     a3[ASK: Vastuste kvaliteedi hindamine]
-    a4[DO: Analüüsi raport koostamine]
+    a4[DO: Analüüsi raporti koostamine]
     a1 --> a2 --> a3 --> a4
     end
 

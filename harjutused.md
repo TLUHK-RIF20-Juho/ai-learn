@@ -1,3 +1,4 @@
+[<-Tagasi](./README.md)
 # Harjutused viipade koostamiseks
 
 ## Harjutus 1: Baasviiba koostamine
@@ -52,3 +53,5 @@
 - Analüüsi põhjalikkus
 - Järelduste loogilisus
 - Parendusettepanekute asjakohasus
+
+[<-Tagasi](./README.md)

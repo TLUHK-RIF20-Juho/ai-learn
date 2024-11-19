@@ -1,4 +1,5 @@
-Õpetaja peab ette valmistama:
+[<-Tagasi](./README.md)
+# Õpetaja peab ette valmistama:
 
 1. TEOREETILISED MATERJALID (TELL):
 - Promptimise põhimõtete tekstid/artiklid
@@ -58,3 +59,5 @@
 - Konsultatsioonide ajakava
 - Tugimaterjalid nõrgematele õppijatele
 - Lisamaterjalid tugevamatele õppijatele
+
+[<-Tagasi](./README.md)

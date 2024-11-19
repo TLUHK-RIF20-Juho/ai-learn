@@ -1,3 +1,4 @@
+[<-Tagasi](./README.md)
 # Projektülesanded
 
 ## Projekt 1: EL Projekti kavandi koostamine viipade abil
@@ -73,3 +74,5 @@
 - Viipade kasutamise efektiivsus
 - Dokumentatsiooni kvaliteet
 - Projekti teostatavus
+
+[<-Tagasi](./README.md)
