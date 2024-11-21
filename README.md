@@ -57,135 +57,89 @@ mindmap
             Asjakohasus
             Terviklikkus
 ```
-
 ```mermaid
-graph TB
-    %% Peamine sõlm
-    AI[AI õppimine]
+erDiagram
+    AI_OPPIMINE ||--o{ LLM : sisaldab
+    AI_OPPIMINE ||--o{ VIIP : sisaldab
 
-    %% LLM põhiharu
-    LLM[LLM]
-    M[Mudelid]
-    V[Võimekused]
-    P[Piirangud]
-    K[Kasutamine]
+    LLM ||--o{ MUDEL : omab
+    LLM ||--o{ VOIMEKUS : omab
+    LLM ||--o{ PIIRANG : arvestab
+    LLM ||--o{ KASUTAMINE : voimaldab
 
-   %% LLM alamharud
-   M1[GPT]
-   M2[Claude]
-   M3[Llama]
+    VIIP ||--o{ STRUKTUUR : nouab
+    VIIP ||--o{ TYYP : jaguneb
+    VIIP ||--o{ KOMPONENT : koosneb
+    VIIP ||--o{ TAIUSTAMINE : vajab
+    VIIP ||--o{ HINDAMINE : nouab
 
-   V1[Tekstigenereerimine]
-   V2[Analüüs]
-   V3[Tõlkimine]
-   V4[Kokkuvõtted]
+    VIIP ||--o{ KASUTAMINE : kasutab
+    HINDAMINE ||--o{ VOIMEKUS : hindab
+    TAIUSTAMINE ||--o{ PIIRANG : arvestab
+    KOMPONENT ||--o{ MUDEL : soltub
 
-   P1[Hallutsinatsioonid]
-   P2[Konteksti piirang]
-   P3[Ajaline piir]
+    MUDEL {
+        mudel GPT
+        mudel Claude
+        mudel Llama
+    }
 
-   K1[API]
-   K2[Veebiliides]
-   K3[Rakendused]
+    VOIMEKUS {
+        voime Tekstigenereerimine
+        voime Analyys
+        voime Tolkimine
+        voime Kokkvoted
+    }
 
-   %% Viip põhiharu
-   VIIP[Viip]
-   S[Struktuur]
-   T[Tüübid]
-   KO[Komponendid]
-   TA[Täiustamine]
-   H[Hindamine]
+    PIIRANG {
+        piirang Hallutsinatsioonid
+        piirang KontekstiPiirang
+        piirang AjalinePiir
+    }
 
-   %% Viip alamharud
-   S1[Kontekst]
-   S2[Eesmärk]
-   S3[Piirangud]
-   S4[Formaat]
+    KASUTAMINE {
+        kasutus API
+        kasutus Veebiliides
+        kasutus Rakendused
+    }
 
-   T1[Zero-shot]
-   T2[Few-shot]
-   T3[Chain-of-thought]
+    STRUKTUUR {
+        element Kontekst
+        element Eesmark
+        element Piirangud
+        element Formaat
+    }
 
-   KO1[Taustinfo]
-   KO2[Juhised]
-   KO3[Näited]
-   KO4[Väljundi formaat]
+    TYYP {
+        tyyp ZeroShot
+        tyyp FewShot
+        tyyp ChainOfThought
+    }
 
-   TA1[Iteratsioon]
-   TA2[Analüüs]
-   TA3[Optimeerimine]
-   TA4[Testimine]
+    KOMPONENT {
+        osa Taustinfo
+        osa Juhised
+        osa Naited
+        osa ValjundiFormaat
+    }
 
-   H1[Vastuse kvaliteet]
-   H2[Täpsus]
-   H3[Asjakohasus]
-   H4[Terviklikkus]
+    TAIUSTAMINE {
+        tegevus Iteratsioon
+        tegevus Analyys
+        tegevus Optimeerimine
+        tegevus Testimine
+    }
 
-   %% Põhiühendused
-   AI --> LLM
-   AI --> VIIP
-
-   %% LLM ühendused
-   LLM --> M
-   LLM --> V
-   LLM --> P
-   LLM --> K
-
-   M --> M1
-   M --> M2
-   M --> M3
-
-   V --> V1
-   V --> V2
-   V --> V3
-   V --> V4
-
-   P --> P1
-   P --> P2
-   P --> P3
-
-   K --> K1
-   K --> K2
-   K --> K3
-
-   %% Viip ühendused
-   VIIP --> S
-   VIIP --> T
-   VIIP --> KO
-   VIIP --> TA
-   VIIP --> H
-
-   S --> S1
-   S --> S2
-   S --> S3
-   S --> S4
-
-   T --> T1
-   T --> T2
-   T --> T3
-
-   KO --> KO1
-   KO --> KO2
-   KO --> KO3
-   KO --> KO4
-
-   TA --> TA1
-   TA --> TA2
-   TA --> TA3
-   TA --> TA4
-
-   H --> H1
-   H --> H2
-   H --> H3
-   H --> H4
-
-   %% Ristseosed
-   VIIP -.-> K
-   KO -.-> V
-   H -.-> V2
-   TA2 -.-> H
-   S -.-> P
+    HINDAMINE {
+        kriteerium VastuseKvaliteet
+        kriteerium Tapsus
+        kriteerium Asjakohasus
+        kriteerium Terviklikkus
+    }
 ```
+
+
+
 
 ## Tegumite struktuur – viipade koostamine, vastuste analüüs ja viiba iteratiivne täiustamine
 ```mermaid
