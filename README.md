@@ -26,7 +26,7 @@ mindmap
         [Piirangud]
             Ebatäpne vastus/väljamõeldis
             Konteksti piirang
-            Teadmiste ajaline piirang
+            Teadmiste ajaline
         [Kasutamine]
             API
             Veebiliides
