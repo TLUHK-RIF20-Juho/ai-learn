@@ -26,7 +26,7 @@ mindmap
         [Piirangud]
             Ebatäpne vastus/väljamõeldis
             Konteksti piirang
-            Teadmiste ajaline
+            Teadmiste piiratus
         [Kasutamine]
             API
             Veebiliides
@@ -42,7 +42,7 @@ mindmap
             Few-shot
             Chain-of-thought
         [Komponendid]
-            Taustinfo
+            Taustainfo
             Juhised
             Näited
             Väljundi formaat
