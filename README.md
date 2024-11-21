@@ -58,16 +58,17 @@ mindmap
             Terviklikkus
 ```
 
+```mermaid
 graph TB
-   %% Peamine sõlm
-   AI[AI õppimine]
+    %% Peamine sõlm
+    AI[AI õppimine]
 
-   %% LLM põhiharu
-   LLM[LLM]
-   M[Mudelid]
-   V[Võimekused]
-   P[Piirangud]
-   K[Kasutamine]
+    %% LLM põhiharu
+    LLM[LLM]
+    M[Mudelid]
+    V[Võimekused]
+    P[Piirangud]
+    K[Kasutamine]
 
    %% LLM alamharud
    M1[GPT]
