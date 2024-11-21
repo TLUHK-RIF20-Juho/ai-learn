@@ -57,6 +57,7 @@ mindmap
             Asjakohasus
             Terviklikkus
 ```
+### Omavaheliste seostega versioon (täpitähti ja tühikuid ei saa erDiagrammiga kasutada). 
 ```mermaid
 erDiagram
     AI_OPPIMINE ||--o{ LLM : sisaldab
