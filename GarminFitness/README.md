@@ -21,6 +21,7 @@ Rakendus loeb neid HealthKiti kaudu (ainult lugemine, midagi ei kirjutata).
 | Vaade | Sisu |
 |---|---|
 | **Kokkuvõte** | Kolm rõngast (Liikumine kcal, Treening min, Sammud), nädala rõngad E–P, vahemaa, puhkepulss, liikumisseeria, viimased treeningud |
+| **Päeva vaade** | Puuduta päeva nädala ribal või rõngaid: tunnipõhised graafikud (kalorid, treeningminutid, sammud), vahemaa, puhkepulss ja päeva treeningud; noolte või libistamisega eelmisele/järgmisele päevale |
 | **Treeningud** | Kuude kaupa nimekiri; detailvaates kestus, vahemaa, tempo/kiirus, kalorid, pulsigraafik ja pulsitsoonid |
 | **Trendid** | 28 päeva tulpdiagramm koos eesmärgijoonega, viimase 7 päeva keskmine vs eelnevad 28 päeva |
 | **Seaded** | Päevased eesmärgid, maksimaalne pulss, näidisandmed, Garmini ühendamise juhend |

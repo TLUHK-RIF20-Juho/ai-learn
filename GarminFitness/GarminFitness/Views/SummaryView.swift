@@ -20,6 +20,9 @@ struct SummaryView: View {
                     }
 
                     activityCard
+                    Text("See nädal · puuduta päeva")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
                     WeekStripView(week: store.currentWeek, goals: store.goals)
                     statsGrid
                     recentWorkouts
@@ -28,6 +31,7 @@ struct SummaryView: View {
             }
             .navigationTitle("Kokkuvõte")
             .navigationDestination(for: Workout.self) { WorkoutDetailView(workout: $0) }
+            .navigationDestination(for: DayRoute.self) { DayDetailView(date: $0.date) }
             .refreshable { await store.load() }
             .overlay {
                 if store.isLoading && store.days.isEmpty {
@@ -38,21 +42,10 @@ struct SummaryView: View {
     }
 
     private var activityCard: some View {
-        VStack(spacing: 20) {
-            ActivityRingsView(day: store.today, goals: store.goals, lineWidth: 24)
-                .frame(maxWidth: 230)
-                .frame(maxWidth: .infinity)
-
-            VStack(spacing: 14) {
-                ForEach(Ring.allCases) { ring in
-                    RingStatRow(ring: ring, value: store.today.map(ring.value(in:)) ?? 0, goal: ring.goal(in: store.goals))
-                    if ring != Ring.allCases.last {
-                        Divider()
-                    }
-                }
-            }
+        NavigationLink(value: DayRoute(date: .now)) {
+            DayRingsCard(day: store.today, goals: store.goals)
         }
-        .card()
+        .buttonStyle(.plain)
     }
 
     private var statsGrid: some View {
@@ -72,14 +65,14 @@ struct SummaryView: View {
                 color: Ring.move.color
             )
             StatTile(
-                title: "Liikumisseeria",
+                title: "Seeria",
                 value: "\(store.moveStreak) päeva",
                 symbol: "flame.fill",
                 color: .orange
             )
             StatTile(
-                title: "Treeninguid nädalas",
-                value: "\(store.workoutsThisWeek.count)",
+                title: "Sel nädalal",
+                value: "\(store.workoutsThisWeek.count) treeningut",
                 symbol: "figure.run",
                 color: Ring.exercise.color
             )
@@ -158,9 +151,14 @@ struct StatTile: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Label(title, systemImage: symbol)
+            Image(systemName: symbol)
                 .font(.footnote.weight(.semibold))
                 .foregroundStyle(color)
+            Text(title)
+                .font(.footnote.weight(.semibold))
+                .foregroundStyle(color)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
             Text(value)
                 .font(.title3.bold().monospacedDigit())
                 .lineLimit(1)
@@ -178,14 +176,46 @@ struct WeekStripView: View {
         HStack(spacing: 0) {
             ForEach(week) { item in
                 let isToday = Calendar.fitness.isDateInToday(item.date)
-                VStack(spacing: 6) {
-                    Text(item.date.formatted(.dateTime.weekday(.narrow).locale(.et)))
-                        .font(.caption2.bold())
-                        .foregroundStyle(isToday ? Color.primary : Color.secondary)
-                    ActivityRingsView(day: item.activity, goals: goals, lineWidth: 4, spacing: 1)
-                        .frame(width: 36, height: 36)
+                let isFuture = item.date > .now
+                NavigationLink(value: DayRoute(date: item.date)) {
+                    VStack(spacing: 6) {
+                        Text(item.date.formatted(.dateTime.weekday(.narrow).locale(.et)))
+                            .font(.caption2.bold())
+                            .foregroundStyle(isToday ? Color.primary : Color.secondary)
+                        ActivityRingsView(day: item.activity, goals: goals, lineWidth: 4, spacing: 1)
+                            .frame(width: 36, height: 36)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .contentShape(Rectangle())
                 }
+                .buttonStyle(.plain)
+                .disabled(isFuture)
+                .opacity(isFuture ? 0.4 : 1)
+                .accessibilityLabel(Format.day(item.date))
+            }
+        }
+        .card()
+    }
+}
+
+/// Suured rõngad ja iga rõnga väärtus oma real (kokkuvõttes ja päeva detailvaates).
+struct DayRingsCard: View {
+    let day: DailyActivity?
+    let goals: Goals
+
+    var body: some View {
+        VStack(spacing: 20) {
+            ActivityRingsView(day: day, goals: goals, lineWidth: 24)
+                .frame(maxWidth: 230)
                 .frame(maxWidth: .infinity)
+
+            VStack(spacing: 14) {
+                ForEach(Ring.allCases) { ring in
+                    RingStatRow(ring: ring, value: day.map(ring.value(in:)) ?? 0, goal: ring.goal(in: goals))
+                    if ring != Ring.allCases.last {
+                        Divider()
+                    }
+                }
             }
         }
         .card()

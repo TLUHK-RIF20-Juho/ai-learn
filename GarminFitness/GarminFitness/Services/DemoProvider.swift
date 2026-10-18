@@ -12,6 +12,55 @@ struct DemoProvider: HealthDataProvider {
         days(from: start, to: end).map(activity(on:))
     }
 
+    func hourlyActivity(on day: Date) async throws -> [HourlyActivity] {
+        let dayStart = calendar.startOfDay(for: day)
+        let total = activity(on: dayStart)
+        let finished = finishedWorkouts(on: dayStart)
+        var rng = SeededGenerator(seed: seed(for: dayStart) ^ 0x5A5A)
+
+        let hours: [DateInterval] = (0..<24).compactMap { offset in
+            guard let start = calendar.date(byAdding: .hour, value: offset, to: dayStart), start <= now,
+                  let end = calendar.date(byAdding: .hour, value: 1, to: start) else { return nil }
+            return DateInterval(start: start, end: end)
+        }
+        guard !hours.isEmpty else { return [] }
+
+        // Päevane taustaliikumine jaotatakse tundidele: öösel vähe, päeval rohkem
+        let weights = hours.map { interval -> Double in
+            let hour = calendar.component(.hour, from: interval.start)
+            switch hour {
+            case 7..<22: return Double.random(in: 0.4...1.6, using: &rng)
+            case 6, 22: return 0.2
+            default: return 0.02
+            }
+        }
+        let weightSum = weights.reduce(0, +)
+
+        let workoutEnergy = finished.compactMap(\.activeEnergy).reduce(0, +)
+        let workoutSteps = finished.map(steps(in:)).reduce(0, +)
+        let workoutMinutes = ActivityMath.exerciseMinutes(of: finished, in: DateInterval(start: dayStart, end: hours.last?.end ?? dayStart))
+        let baseEnergy = max(total.activeEnergy - workoutEnergy, 0)
+        let baseSteps = max(total.steps - workoutSteps, 0)
+        let baseMinutes = max(total.exerciseMinutes - workoutMinutes, 0)
+
+        return zip(hours, weights).map { interval, weight in
+            let share = weight / weightSum
+            // Treeningu osa, mis jääb sellesse tundi
+            let overlap = finished.map { workout -> Double in
+                let start = max(workout.start, interval.start), end = min(workout.end, interval.end)
+                return end > start ? end.timeIntervalSince(start) / workout.duration : 0
+            }
+            let hourWorkoutEnergy = zip(finished, overlap).map { ($0.activeEnergy ?? 0) * $1 }.reduce(0, +)
+            let hourWorkoutSteps = zip(finished, overlap).map { self.steps(in: $0) * $1 }.reduce(0, +)
+            return HourlyActivity(
+                date: interval.start,
+                activeEnergy: (baseEnergy * share + hourWorkoutEnergy).rounded(),
+                exerciseMinutes: (baseMinutes * share + ActivityMath.exerciseMinutes(of: finished, in: interval)).rounded(),
+                steps: (baseSteps * share + hourWorkoutSteps).rounded()
+            )
+        }
+    }
+
     func workouts(from start: Date, to end: Date) async throws -> [Workout] {
         days(from: start, to: end)
             .compactMap(workout(on:))
@@ -83,9 +132,9 @@ struct DemoProvider: HealthDataProvider {
         // Tänane päev on alles pooleli
         let fraction = now < next ? min(max(now.timeIntervalSince(day) / 86_400, 0), 1) : 1
 
-        let finished = [workout(on: day)].compactMap { $0 }.filter { $0.end <= now }
+        let finished = finishedWorkouts(on: day)
         let workoutEnergy = finished.compactMap(\.activeEnergy).reduce(0, +)
-        let workoutSteps = finished.filter { $0.kind.usesPace }.compactMap(\.distance).reduce(0, +) / 0.8
+        let workoutSteps = finished.map(steps(in:)).reduce(0, +)
 
         let steps = (Double.random(in: 3_500...9_000, using: &rng) * fraction + workoutSteps).rounded()
         return DailyActivity(
@@ -97,6 +146,15 @@ struct DemoProvider: HealthDataProvider {
             distance: (steps * 0.75).rounded(),
             restingHeartRate: Double.random(in: 51...58, using: &rng).rounded()
         )
+    }
+
+    private func finishedWorkouts(on day: Date) -> [Workout] {
+        [workout(on: day)].compactMap { $0 }.filter { $0.end <= now }
+    }
+
+    /// Sammud jooksu-, kõnni- ja matkatreeningul (~0,8 m sammu kohta).
+    private func steps(in workout: Workout) -> Double {
+        workout.kind.usesPace ? (workout.distance ?? 0) / 0.8 : 0
     }
 
     private static func profile(for kind: WorkoutKind) -> (kcalPerMinute: Double, metersPerMinute: Double?, heartRate: Double) {

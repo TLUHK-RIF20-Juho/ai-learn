@@ -61,6 +61,34 @@ final class HealthKitProvider: HealthDataProvider, @unchecked Sendable {
         return result
     }
 
+    func hourlyActivity(on day: Date) async throws -> [HourlyActivity] {
+        let start = calendar.startOfDay(for: day)
+        guard let end = calendar.date(byAdding: .day, value: 1, to: start) else { return [] }
+        let hour = DateComponents(hour: 1)
+
+        async let energy = values(.activeEnergyBurned, unit: .kilocalorie(), options: .cumulativeSum, from: start, to: end, interval: hour)
+        async let steps = values(.stepCount, unit: .count(), options: .cumulativeSum, from: start, to: end, interval: hour)
+        async let exercise = values(.appleExerciseTime, unit: .minute(), options: .cumulativeSum, from: start, to: end, interval: hour)
+        async let workoutList = workouts(from: start, to: end)
+
+        let (energyByHour, stepsByHour, exerciseByHour) = await (energy, steps, exercise)
+        let dayWorkouts = try await workoutList
+
+        return (0..<24).compactMap { offset in
+            guard let hourStart = calendar.date(byAdding: .hour, value: offset, to: start),
+                  let hourEnd = calendar.date(byAdding: .hour, value: 1, to: hourStart),
+                  hourStart <= .now
+            else { return nil }
+            let workoutMinutes = ActivityMath.exerciseMinutes(of: dayWorkouts, in: DateInterval(start: hourStart, end: hourEnd))
+            return HourlyActivity(
+                date: hourStart,
+                activeEnergy: energyByHour[hourStart] ?? 0,
+                exerciseMinutes: max(exerciseByHour[hourStart] ?? 0, workoutMinutes),
+                steps: stepsByHour[hourStart] ?? 0
+            )
+        }
+    }
+
     func workouts(from start: Date, to end: Date) async throws -> [Workout] {
         let predicate = HKQuery.predicateForSamples(withStart: start, end: end)
         let descriptor = HKSampleQueryDescriptor(
@@ -89,13 +117,24 @@ final class HealthKitProvider: HealthDataProvider, @unchecked Sendable {
         from start: Date,
         to end: Date
     ) async -> [Date: Double] {
-        let anchor = calendar.startOfDay(for: start)
+        await values(identifier, unit: unit, options: options, from: calendar.startOfDay(for: start), to: end, interval: DateComponents(day: 1))
+    }
+
+    /// Summad/keskmised ajavahemike kaupa, võtmeks vahemiku algus.
+    private func values(
+        _ identifier: HKQuantityTypeIdentifier,
+        unit: HKUnit,
+        options: HKStatisticsOptions,
+        from anchor: Date,
+        to end: Date,
+        interval: DateComponents
+    ) async -> [Date: Double] {
         let type = HKQuantityType(identifier)
         let descriptor = HKStatisticsCollectionQueryDescriptor(
             predicate: .quantitySample(type: type, predicate: HKQuery.predicateForSamples(withStart: anchor, end: end)),
             options: options,
             anchorDate: anchor,
-            intervalComponents: DateComponents(day: 1)
+            intervalComponents: interval
         )
         guard let collection = try? await descriptor.result(for: store) else { return [:] }
 
@@ -103,7 +142,7 @@ final class HealthKitProvider: HealthDataProvider, @unchecked Sendable {
         collection.enumerateStatistics(from: anchor, to: end) { statistics, _ in
             let quantity = options.contains(.cumulativeSum) ? statistics.sumQuantity() : statistics.averageQuantity()
             if let quantity {
-                values[self.calendar.startOfDay(for: statistics.startDate)] = quantity.doubleValue(for: unit)
+                values[statistics.startDate] = quantity.doubleValue(for: unit)
             }
         }
         return values

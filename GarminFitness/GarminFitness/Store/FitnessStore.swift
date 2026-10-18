@@ -83,6 +83,23 @@ final class FitnessStore {
         }
     }
 
+    func hourlyActivity(on date: Date) async -> [HourlyActivity] {
+        (try? await provider.hourlyActivity(on: date)) ?? []
+    }
+
+    func workouts(on date: Date) -> [Workout] {
+        workouts.filter { calendar.isDate($0.start, inSameDayAs: date) }.reversed()
+    }
+
+    /// Eelmine/järgmine päev laaditud ajaloo piires (tulevikku ei lähe).
+    func day(_ offset: Int, from date: Date) -> Date? {
+        guard let target = calendar.date(byAdding: .day, value: offset, to: calendar.startOfDay(for: date)),
+              let first = days.first?.date,
+              target >= first, target <= .now
+        else { return nil }
+        return target
+    }
+
     func heartRate(for workout: Workout) async -> [HeartRateSample] {
         (try? await provider.heartRate(for: workout)) ?? []
     }

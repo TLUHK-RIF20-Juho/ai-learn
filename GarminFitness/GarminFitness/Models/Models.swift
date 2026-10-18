@@ -11,6 +11,20 @@ struct DailyActivity: Identifiable, Hashable {
     var restingHeartRate: Double? // lööki/min
 }
 
+/// Ühe tunni aktiivsus päeva detailvaate graafikute jaoks.
+struct HourlyActivity: Identifiable, Hashable {
+    var id: Date { date }
+    let date: Date               // tunni algus
+    var activeEnergy: Double     // kcal
+    var exerciseMinutes: Double  // min
+    var steps: Double
+}
+
+/// Navigeerimine päeva detailvaatesse.
+struct DayRoute: Hashable {
+    let date: Date
+}
+
 struct Goals: Codable, Equatable {
     var moveKcal: Double = 500
     var exerciseMinutes: Double = 30
@@ -46,6 +60,14 @@ enum Ring: String, CaseIterable, Identifiable {
         case .move: day.activeEnergy
         case .exercise: day.exerciseMinutes
         case .steps: day.steps
+        }
+    }
+
+    func value(in hour: HourlyActivity) -> Double {
+        switch self {
+        case .move: hour.activeEnergy
+        case .exercise: hour.exerciseMinutes
+        case .steps: hour.steps
         }
     }
 

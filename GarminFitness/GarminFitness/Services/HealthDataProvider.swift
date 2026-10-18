@@ -5,6 +5,8 @@ import Foundation
 protocol HealthDataProvider: Sendable {
     func requestAuthorization() async throws
     func dailyActivity(from start: Date, to end: Date) async throws -> [DailyActivity]
+    /// Antud päeva 24 tunni andmed (tänase päeva puhul kuni praeguse tunnini).
+    func hourlyActivity(on day: Date) async throws -> [HourlyActivity]
     /// Treeningud uuemast vanemani.
     func workouts(from start: Date, to end: Date) async throws -> [Workout]
     func heartRate(for workout: Workout) async throws -> [HeartRateSample]
