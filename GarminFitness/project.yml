@@ -1,0 +1,43 @@
+name: GarminFitness
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "17.0"
+  developmentLanguage: et
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  GarminFitness:
+    type: application
+    platform: iOS
+    sources:
+      - GarminFitness
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.garminfitness
+        INFOPLIST_FILE: GarminFitness/Info.plist
+        CODE_SIGN_ENTITLEMENTS: GarminFitness/GarminFitness.entitlements
+        TARGETED_DEVICE_FAMILY: "1"
+        # Pane siia oma Apple Developer Team ID (või vali see Xcode'is)
+        DEVELOPMENT_TEAM: ""
+  GarminFitnessTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - GarminFitnessTests
+    dependencies:
+      - target: GarminFitness
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  GarminFitness:
+    build:
+      targets:
+        GarminFitness: all
+    test:
+      targets:
+        - GarminFitnessTests

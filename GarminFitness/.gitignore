@@ -1,0 +1,5 @@
+# Xcode (projekt genereeritakse XcodeGeniga)
+*.xcodeproj/
+xcuserdata/
+DerivedData/
+.build/
