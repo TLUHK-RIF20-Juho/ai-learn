@@ -18,11 +18,24 @@ struct RingView: View {
                 .rotationEffect(.degrees(-90))
             // Teine ring, kui eesmärk on ületatud (nagu Apple Fitnessis)
             if progress > 1 {
+                let tip = min(progress - 1, 1)
                 Circle()
-                    .trim(from: 0, to: min(progress - 1, 1))
+                    .trim(from: 0, to: tip)
                     .stroke(color, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                     .rotationEffect(.degrees(-90))
-                    .shadow(color: .black.opacity(0.5), radius: lineWidth / 4)
+                // Vari ainult ringi otsas, langeb liikumissuunas eelmisele ringile
+                Circle()
+                    .fill(color)
+                    .frame(width: lineWidth, height: lineWidth)
+                    .shadow(color: .black.opacity(0.55), radius: lineWidth / 5, x: lineWidth / 5)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                    .offset(y: -lineWidth / 2)
+                    .rotationEffect(.degrees(360 * tip))
+                // Katab otsa taha langeva varju, et see ei paistaks ringi enda peal
+                Circle()
+                    .trim(from: max(tip - 0.03, 0), to: tip)
+                    .stroke(color, style: StrokeStyle(lineWidth: lineWidth, lineCap: .butt))
+                    .rotationEffect(.degrees(-90))
             }
         }
         .padding(lineWidth / 2)

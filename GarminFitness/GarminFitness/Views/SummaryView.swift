@@ -110,10 +110,11 @@ struct RingStatRow: View {
 
     var body: some View {
         ViewThatFits(in: .horizontal) {
+            // fixedSize: kui rida ei mahu, valitakse kaherealine variant, mitte kärbitud tekst
             HStack(alignment: .firstTextBaseline) {
-                title
+                title.fixedSize()
                 Spacer(minLength: 8)
-                amount
+                amount.fixedSize()
             }
             VStack(alignment: .leading, spacing: 2) {
                 title
