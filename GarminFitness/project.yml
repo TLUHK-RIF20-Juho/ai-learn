@@ -1,6 +1,6 @@
 name: GarminFitness
 options:
-  bundleIdPrefix: com.example
+  bundleIdPrefix: com.juhokalberg
   deploymentTarget:
     iOS: "17.0"
   developmentLanguage: et
@@ -17,7 +17,7 @@ targets:
       - GarminFitness
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.example.garminfitness
+        PRODUCT_BUNDLE_IDENTIFIER: com.juhokalberg.garminfitness
         INFOPLIST_FILE: GarminFitness/Info.plist
         CODE_SIGN_ENTITLEMENTS: GarminFitness/GarminFitness.entitlements
         TARGETED_DEVICE_FAMILY: "1"
