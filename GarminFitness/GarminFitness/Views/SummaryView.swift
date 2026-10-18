@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SummaryView: View {
     @Environment(FitnessStore.self) private var store
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         NavigationStack {
@@ -37,27 +38,27 @@ struct SummaryView: View {
     }
 
     private var activityCard: some View {
-        HStack(spacing: 16) {
-            VStack(alignment: .leading, spacing: 12) {
+        VStack(spacing: 20) {
+            ActivityRingsView(day: store.today, goals: store.goals, lineWidth: 24)
+                .frame(maxWidth: 230)
+                .frame(maxWidth: .infinity)
+
+            VStack(spacing: 14) {
                 ForEach(Ring.allCases) { ring in
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(ring.title)
-                            .font(.subheadline.weight(.semibold))
-                        Text("\(Format.number(store.today.map(ring.value(in:)) ?? 0))/\(Format.number(ring.goal(in: store.goals))) \(ring.unit)")
-                            .font(.title3.bold().monospacedDigit())
-                            .foregroundStyle(ring.color)
+                    RingStatRow(ring: ring, value: store.today.map(ring.value(in:)) ?? 0, goal: ring.goal(in: store.goals))
+                    if ring != Ring.allCases.last {
+                        Divider()
                     }
                 }
             }
-            Spacer(minLength: 0)
-            ActivityRingsView(day: store.today, goals: store.goals, lineWidth: 18)
-                .frame(width: 150)
         }
         .card()
     }
 
     private var statsGrid: some View {
-        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
+        // Suure teksti korral üks veerg, et numbrid ei murduks
+        let columnCount = dynamicTypeSize.isAccessibilitySize ? 1 : 2
+        return LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: columnCount), spacing: 12) {
             StatTile(
                 title: "Vahemaa",
                 value: Format.distance(store.today?.distance ?? 0),
@@ -105,6 +106,47 @@ struct SummaryView: View {
                 .buttonStyle(.plain)
             }
         }
+    }
+}
+
+/// Üks rida rõngaste all: ikoon ja nimi vasakul, väärtus/eesmärk paremal.
+struct RingStatRow: View {
+    let ring: Ring
+    let value: Double
+    let goal: Double
+
+    var body: some View {
+        ViewThatFits(in: .horizontal) {
+            HStack(alignment: .firstTextBaseline) {
+                title
+                Spacer(minLength: 8)
+                amount
+            }
+            VStack(alignment: .leading, spacing: 2) {
+                title
+                amount
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .accessibilityElement(children: .combine)
+    }
+
+    private var title: some View {
+        Label(ring.title, systemImage: ring.symbol)
+            .font(.headline)
+            .foregroundStyle(ring.color)
+            .lineLimit(1)
+    }
+
+    private var amount: some View {
+        (Text(Format.number(value))
+            .font(.title2.bold().monospacedDigit())
+            .foregroundStyle(ring.color)
+        + Text(" / \(Format.number(goal)) \(ring.unit)")
+            .font(.subheadline.monospacedDigit())
+            .foregroundStyle(.secondary))
+            .lineLimit(1)
+            .minimumScaleFactor(0.6)
     }
 }
 
